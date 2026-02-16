@@ -1,6 +1,7 @@
 package com.lowleveldesign.BookMyShow.models;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,6 +13,12 @@ import java.util.List;
 public class Screen extends BaseModel {
     private String name;
     private List<Feature> features;
+
+    @OneToMany
     private List<Seat> seats;
     private ScreenStatus screenStatus;
 }
+
+/*
+Screen : Seat (1:M)
+ */
