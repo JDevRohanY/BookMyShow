@@ -1,9 +1,6 @@
 package com.lowleveldesign.BookMyShow.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,6 +14,7 @@ public class ShowSeat extends BaseModel {
     @ManyToOne
     private Seat seat;
 
+    @Enumerated(EnumType.ORDINAL)
     private ShowSeatStatus showSeatStatus;
 }
 
