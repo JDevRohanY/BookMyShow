@@ -9,7 +9,7 @@ import java.util.List;
 
 @Getter
 @Setter
-@Entity
+@Entity(name = "bookings")
 public class Booking extends BaseModel {
     @ManyToOne
     private User user;
@@ -20,9 +20,11 @@ public class Booking extends BaseModel {
     private int amount;
 
     @OneToMany
+    @JoinColumn(name = "bookingId")
     private List<Payment> payments;
 
     @OneToMany
+    @JoinColumn(name = "bookingId")
     private List<ShowSeat> showSeats;
 
     private Date booked_at;

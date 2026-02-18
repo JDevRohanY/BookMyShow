@@ -1,9 +1,6 @@
 package com.lowleveldesign.BookMyShow.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,12 +8,16 @@ import java.util.List;
 
 @Getter
 @Setter
-@Entity
+@Entity(name = "screens")
 public class Screen extends BaseModel {
     private String name;
+
+    @Enumerated(EnumType.ORDINAL)
+    @ElementCollection
     private List<Feature> features;
 
     @OneToMany
+    @JoinColumn(name = "screenId")
     private List<Seat> seats;
 
     @Enumerated(EnumType.ORDINAL)
